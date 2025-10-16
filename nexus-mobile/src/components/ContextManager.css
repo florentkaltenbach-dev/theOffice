@@ -1,0 +1,189 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.context-manager {
+  padding: 0.75rem 0;
+}
+
+.context-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.context-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.context-title svg {
+  color: #4CAF50;
+}
+
+.add-context-button {
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  color: #666;
+  padding: 0.3rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-context-button:hover {
+  background: #2a2a2a;
+  color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.context-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.context-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.context-item:hover {
+  background: #2f2f2f;
+  border-color: #4CAF50;
+}
+
+.context-item-icon {
+  flex-shrink: 0;
+  color: #4CAF50;
+  display: flex;
+  align-items: center;
+}
+
+.context-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.context-item-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+}
+
+.context-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.context-item-type {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.context-meta-separator {
+  color: #555;
+}
+
+.remove-context-button {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.remove-context-button:hover {
+  background: #3a3a3a;
+  color: #f44336;
+}
+
+.context-empty-state {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #666;
+}
+
+.context-empty-state p {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.add-first-context {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-first-context:hover {
+  background: #45a049;
+}
+
+.add-first-context:active {
+  transform: scale(0.98);
+}
+
+.context-limit-warning {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  background: rgba(255, 167, 38, 0.1);
+  border: 1px solid rgba(255, 167, 38, 0.3);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #FFA726;
+}
+
+.context-limit-warning svg {
+  flex-shrink: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .context-item {
+    padding: 0.6rem;
+  }
+
+  .context-item-name {
+    font-size: 0.8rem;
+  }
+
+  .context-item-meta {
+    font-size: 0.65rem;
+  }
+}

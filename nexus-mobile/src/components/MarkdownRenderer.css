@@ -1,0 +1,233 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.markdown-renderer {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  word-wrap: break-word;
+}
+
+/* Headings */
+.markdown-renderer h1,
+.markdown-renderer h2,
+.markdown-renderer h3,
+.markdown-renderer h4,
+.markdown-renderer h5,
+.markdown-renderer h6 {
+  margin: 1em 0 0.5em 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.markdown-renderer h1 { font-size: 1.8em; border-bottom: 2px solid #3a3a3a; padding-bottom: 0.3em; }
+.markdown-renderer h2 { font-size: 1.5em; border-bottom: 1px solid #3a3a3a; padding-bottom: 0.3em; }
+.markdown-renderer h3 { font-size: 1.3em; }
+.markdown-renderer h4 { font-size: 1.1em; }
+.markdown-renderer h5 { font-size: 1em; }
+.markdown-renderer h6 { font-size: 0.9em; color: #aaa; }
+
+/* Paragraphs */
+.markdown-renderer p {
+  margin: 0.8em 0;
+}
+
+/* Lists */
+.markdown-renderer ul,
+.markdown-renderer ol {
+  margin: 0.8em 0;
+  padding-left: 2em;
+}
+
+.markdown-renderer li {
+  margin: 0.3em 0;
+}
+
+/* Inline code */
+.markdown-renderer .inline-code {
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-size: 0.9em;
+  color: #e0e0e0;
+}
+
+/* Code blocks */
+.code-block-wrapper {
+  margin: 1em 0;
+  border-radius: 6px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  background: #2a2a2a;
+  border-bottom: 1px solid #333;
+}
+
+.code-language {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4CAF50;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-copy-button {
+  background: transparent;
+  border: none;
+  color: #888;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.code-copy-button:hover {
+  background: #333;
+  color: #4CAF50;
+}
+
+.code-copy-button:active {
+  transform: scale(0.95);
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.code-block-wrapper code {
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+/* Blockquotes */
+.markdown-renderer blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid #4CAF50;
+  background: #2a2a2a;
+  color: #ccc;
+  font-style: italic;
+}
+
+.markdown-renderer blockquote p {
+  margin: 0.3em 0;
+}
+
+/* Links */
+.markdown-renderer a {
+  color: #4CAF50;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.markdown-renderer a:hover {
+  border-bottom-color: #4CAF50;
+}
+
+/* Horizontal rule */
+.markdown-renderer hr {
+  margin: 1.5em 0;
+  border: none;
+  border-top: 2px solid #3a3a3a;
+}
+
+/* Tables */
+.table-wrapper {
+  margin: 1em 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.markdown-renderer table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.markdown-renderer th,
+.markdown-renderer td {
+  padding: 0.6em 0.8em;
+  border: 1px solid #3a3a3a;
+  text-align: left;
+}
+
+.markdown-renderer th {
+  background: #2a2a2a;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.markdown-renderer tr:nth-child(even) {
+  background: #252525;
+}
+
+/* Images */
+.markdown-renderer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 0.5em 0;
+}
+
+/* Strong and emphasis */
+.markdown-renderer strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+.markdown-renderer em {
+  font-style: italic;
+  color: #ccc;
+}
+
+/* Line numbers (optional) */
+.markdown-renderer.show-line-numbers pre code {
+  counter-reset: line;
+}
+
+.markdown-renderer.show-line-numbers pre code::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  text-align: right;
+  color: #666;
+  border-right: 1px solid #444;
+  padding-right: 0.5em;
+}
+
+/* Scrollbar styling for code blocks */
+.code-block-wrapper pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block-wrapper pre::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.code-block-wrapper pre::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.code-block-wrapper pre::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

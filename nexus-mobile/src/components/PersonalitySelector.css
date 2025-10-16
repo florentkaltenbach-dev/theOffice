@@ -1,0 +1,279 @@
+/* Written by: Bobby Chen - Software Engineering Intern */
+/* Reviewed by: Katie (UI Designer), Paulo (Creative Director) */
+/* Status: Production-Ready */
+
+.personality-selector {
+  width: 100%;
+}
+
+.personality-selector.compact {
+  display: inline-block;
+  width: auto;
+}
+
+.selector-header {
+  margin-bottom: 12px;
+}
+
+.selector-header h3 {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.current-personality {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.current-personality:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(118, 75, 162, 0.4);
+}
+
+.personality-icon {
+  font-size: 24px;
+}
+
+.personality-name {
+  flex: 1;
+  text-align: left;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.personality-dropdown {
+  width: 100%;
+  background: #2a2a3e;
+  border: 1px solid #3a3a4e;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #e0e0e0;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.personality-dropdown:hover {
+  border-color: #7c3aed;
+}
+
+.personality-dropdown:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.personality-dropdown-panel {
+  position: relative;
+  margin-top: 12px;
+  background: #1a1a2e;
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 500px;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.personality-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .personality-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.personality-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #2a2a3e;
+  border: 2px solid #3a3a4e;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.personality-card:hover {
+  background: #3a3a4e;
+  border-color: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.personality-card.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #7c3aed;
+  color: white;
+}
+
+.card-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.personality-card.active .card-content p {
+  opacity: 0.95;
+}
+
+.active-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.personality-hint {
+  background: #1e293b;
+  border-left: 4px solid #7c3aed;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.personality-hint strong {
+  color: #7c3aed;
+}
+
+/* Personality Badge (compact display) */
+.personality-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #7c3aed;
+  cursor: default;
+}
+
+.badge-icon {
+  font-size: 14px;
+}
+
+.badge-text {
+  font-weight: 500;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .personality-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .current-personality {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .personality-icon {
+    font-size: 20px;
+  }
+
+  .card-icon {
+    font-size: 24px;
+  }
+
+  .card-content h4 {
+    font-size: 14px;
+  }
+
+  .card-content p {
+    font-size: 12px;
+  }
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+  .personality-dropdown-panel {
+    background: #f8f9fa;
+  }
+
+  .personality-card {
+    background: #ffffff;
+    border-color: #e0e0e0;
+    color: #1a1a2e;
+  }
+
+  .personality-card:hover {
+    background: #f0f0f0;
+  }
+
+  .personality-hint {
+    background: #e0e7ff;
+  }
+}
+
+/* Accessibility */
+.personality-card:focus {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+.current-personality:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}

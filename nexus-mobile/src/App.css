@@ -1,42 +1,416 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/*
+ * NEXUS SOFTWARE SOLUTIONS - Main Application Styles
+ * Designed by: Paulo (Creative Director)  
+ * Implemented by: Sarah Williams, Katie (UI Designer)
+ * Theme: Professional, Modern, Clean - "14th Floor Office Vibes"
+ */
+
+:root {
+  /* Nexus Brand Colors */
+  --nexus-primary: #667eea;
+  --nexus-primary-dark: #5568d3;
+  --nexus-secondary: #764ba2;
+  --nexus-accent: #f093fb;
+
+  /* UI Colors */
+  --nexus-bg: #0f0f23;
+  --nexus-surface: #1a1a2e;
+  --nexus-surface-hover: #25253f;
+  --nexus-border: #2d2d44;
+  --nexus-text-primary: #ffffff;
+  --nexus-text-secondary: #a0a0b8;
+  --nexus-text-muted: #6b6b85;
+
+  /* Status Colors */
+  --nexus-success: #10b981;
+  --nexus-warning: #f59e0b;
+  --nexus-error: #ef4444;
+  --nexus-info: #3b82f6;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: var(--nexus-bg);
+  color: var(--nexus-text-primary);
+  overflow: hidden;
+}
+
+/* Loading Screen */
+.nexus-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--nexus-primary) 0%, var(--nexus-secondary) 100%);
+}
+
+.loading-content {
   text-align: center;
+  padding: var(--spacing-xl);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.loading-logo {
+  font-size: 4rem;
+  animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loading-content h2 {
+  font-size: 1.5rem;
+  margin: var(--spacing-md) 0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  margin: var(--spacing-lg) auto;
+  animation: spin 1s linear infinite;
 }
 
-.card {
-  padding: 2em;
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Main App Layout */
+.nexus-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--nexus-bg);
+}
+
+/* Top Navigation Bar */
+.nexus-topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--nexus-surface);
+  border-bottom: 1px solid var(--nexus-border);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+
+.nexus-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 200px;
+}
+
+.logo-icon {
+  font-size: 1.75rem;
+  filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.5));
+}
+
+.logo-text h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--nexus-primary), var(--nexus-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+}
+
+.logo-text span {
+  font-size: 0.75rem;
+  color: var(--nexus-text-secondary);
+  font-weight: 500;
+}
+
+.nexus-search {
+  flex: 1;
+  max-width: 600px;
+}
+
+.nexus-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.session-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--nexus-surface-hover);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+}
+
+.session-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nexus-success);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.session-text {
+  color: var(--nexus-text-secondary);
+  white-space: nowrap;
+}
+
+.nexus-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--nexus-border);
+  border-radius: var(--radius-md);
+  color: var(--nexus-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nexus-icon-btn:hover {
+  background: var(--nexus-surface-hover);
+  border-color: var(--nexus-primary);
+  color: var(--nexus-primary);
+}
+
+.logout-btn:hover {
+  background: var(--nexus-error);
+  border-color: var(--nexus-error);
+  color: white;
+}
+
+/* Main Content Area */
+.nexus-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.nexus-sidebar {
+  width: 320px;
+  background: var(--nexus-surface);
+  border-right: 1px solid var(--nexus-border);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat Area */
+.nexus-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--nexus-bg);
+}
+
+/* Personality Bar */
+.personality-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--nexus-surface);
+  border-bottom: 1px solid var(--nexus-border);
+}
+
+.personality-label {
+  font-size: 0.875rem;
+  color: var(--nexus-text-secondary);
+  font-weight: 500;
+}
+
+.conversation-title {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--nexus-text-muted);
+  text-align: right;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Context Panel */
+.nexus-context-panel {
+  width: 300px;
+  background: var(--nexus-surface);
+  border-left: 1px solid var(--nexus-border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.context-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--nexus-border);
+}
+
+.context-panel-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--nexus-text-secondary);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--nexus-text-primary);
+}
+
+.context-section {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--nexus-border);
+}
+
+.context-section h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--nexus-text-secondary);
+}
+
+.context-empty {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.context-empty p {
+  color: var(--nexus-text-muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.add-context-btn {
+  background: var(--nexus-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.add-context-btn:hover {
+  background: var(--nexus-primary-dark);
+}
+
+.session-info,
+.activity-empty {
+  font-size: 0.875rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  color: var(--nexus-text-secondary);
+}
+
+.status-active {
+  color: var(--nexus-success);
+  font-weight: 500;
+}
+
+/* Feature Indicators */
+.feature-indicators {
+  position: fixed;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  z-index: 1000;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--nexus-surface);
+  border: 1px solid var(--nexus-border);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  color: var(--nexus-text-secondary);
+  box-shadow: var(--shadow-lg);
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.indicator-dot.green {
+  background: var(--nexus-success);
+  box-shadow: 0 0 8px var(--nexus-success);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nexus-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nexus-border);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nexus-text-muted);
 }

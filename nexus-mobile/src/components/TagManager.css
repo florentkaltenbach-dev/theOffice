@@ -1,0 +1,221 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.tag-manager {
+  position: relative;
+}
+
+.tag-input-container {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+.tag-input-container:focus-within {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.tag-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #4CAF50;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag-chip span {
+  user-select: none;
+}
+
+.tag-remove {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+.tag-input {
+  flex: 1;
+  min-width: 100px;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.tag-input::placeholder {
+  color: #666;
+}
+
+/* Tag suggestions dropdown */
+.tag-suggestions {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  animation: slideDown 0.15s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tag-suggestion-item {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tag-suggestion-item:hover {
+  background: #333;
+}
+
+.tag-suggestion-item svg {
+  color: #4CAF50;
+  flex-shrink: 0;
+}
+
+/* Tag filter mode */
+.tag-filter-container {
+  padding: 0.5rem 0;
+}
+
+.tag-filter-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag-filter-header svg {
+  color: #4CAF50;
+}
+
+.tag-filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.tag-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  color: #e0e0e0;
+  padding: 0.4rem 0.7rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-filter-item:hover {
+  background: #333;
+  border-color: #4CAF50;
+}
+
+.tag-filter-item.active {
+  background: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.tag-filter-item svg {
+  width: 12px;
+  height: 12px;
+}
+
+.tag-empty-state {
+  padding: 1rem 0.75rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Scrollbar styling */
+.tag-suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tag-suggestions::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+.tag-suggestions::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+.tag-suggestions::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .tag-chip {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .tag-filter-item {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+  }
+}

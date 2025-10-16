@@ -1,0 +1,65 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.draft-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.draft-text {
+  font-weight: 500;
+}
+
+.draft-saving {
+  color: #FFA726;
+  background: rgba(255, 167, 38, 0.1);
+}
+
+.draft-saved {
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.draft-error {
+  color: #f44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.draft-spinner {
+  color: #FFA726;
+}
+
+/* Animation for status changes */
+.draft-indicator {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .draft-indicator {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .draft-indicator svg {
+    width: 12px;
+    height: 12px;
+  }
+}

@@ -417,15 +417,30 @@ class EmployeeFactory:
             location="Design Studio"
         ))
 
-        # Intern
+        # Intern - The Joker Character
         employees.append(Employee(
             name="Bobby Chen",
-            role="Software Engineering Intern",
+            role="Software Engineering Intern (The Creative Wildcard)",
             team=Team.INTERN,
-            skills=[Skill.PYTHON, Skill.JAVASCRIPT],
-            personality_traits=["Enthusiastic", "Eager to learn", "Accident-prone"],
-            quirks=["Prone to breaking dev environment", "Asks great questions", "Once deleted production database (in training)"],
-            location="Frontend Team Pod"
+            skills=[Skill.PYTHON, Skill.JAVASCRIPT, Skill.DATABASES, Skill.TESTING],
+            personality_traits=[
+                "Enthusiastic",
+                "Eager to learn",
+                "Growing rapidly",
+                "Creative problem-solver",
+                "Learns from mistakes"
+            ],
+            quirks=[
+                "Former production database deleter (never again!)",
+                "Asks surprisingly insightful architecture questions",
+                "Has local Docker test environment to avoid breaking things",
+                "Takes extensive notes on everything",
+                "Suggests features that seniors forgot to consider",
+                "The lovable chaos agent who keeps the team humble",
+                "Reading documentation voraciously",
+                "Thinks about edge cases and UX details"
+            ],
+            location="Corner Desk (with extra monitors and sticky notes everywhere)"
         ))
 
         # Additional team members to reach 47

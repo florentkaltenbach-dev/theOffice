@@ -1,0 +1,70 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.ai-personality-selector {
+  padding: 0.75rem 0;
+}
+
+.selector-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.personality-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.personality-select {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.personality-select:hover:not(:disabled) {
+  border-color: #4CAF50;
+}
+
+.personality-select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.personality-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.personality-description {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.4;
+  padding: 0 0.25rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .personality-select {
+    font-size: 0.85rem;
+    padding: 0.65rem;
+  }
+
+  .personality-description {
+    font-size: 0.75rem;
+  }
+}

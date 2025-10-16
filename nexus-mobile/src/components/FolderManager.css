@@ -1,0 +1,243 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.folder-manager {
+  padding: 0.5rem 0;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.folder-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+  position: relative;
+  margin: 0.25rem 0;
+}
+
+.folder-item:hover {
+  background: #2a2a2a;
+}
+
+.folder-item.active {
+  background: #333;
+  border-left: 3px solid #4CAF50;
+}
+
+.folder-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.folder-item svg {
+  color: #4CAF50;
+  flex-shrink: 0;
+}
+
+.folder-item span {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.create-folder-button {
+  background: transparent;
+  border: 1px solid #3a3a3a;
+  color: #666;
+  padding: 0.35rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.create-folder-button:hover {
+  background: #2a2a2a;
+  color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.folder-menu-button {
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+.folder-item:hover .folder-menu-button {
+  opacity: 1;
+}
+
+.folder-menu-button:hover {
+  background: #3a3a3a;
+  color: #e0e0e0;
+}
+
+/* Folder forms */
+.folder-create-form,
+.folder-edit-form {
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+}
+
+.folder-input {
+  width: 100%;
+  padding: 0.5rem;
+  background: #2a2a2a;
+  border: 1px solid #4CAF50;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-size: 0.85rem;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.folder-input:focus {
+  border-color: #45a049;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.folder-form-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.btn-save,
+.btn-cancel,
+.btn-save-small,
+.btn-cancel-small {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save,
+.btn-save-small {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-save:hover,
+.btn-save-small:hover {
+  background: #45a049;
+}
+
+.btn-cancel,
+.btn-cancel-small {
+  background: #444;
+  color: #e0e0e0;
+}
+
+.btn-cancel:hover,
+.btn-cancel-small:hover {
+  background: #555;
+}
+
+.btn-save-small,
+.btn-cancel-small {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+}
+
+/* Context menu */
+.folder-context-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  min-width: 140px;
+  overflow: hidden;
+  animation: slideDown 0.15s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.folder-context-menu button {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.folder-context-menu button:hover {
+  background: #333;
+}
+
+.folder-context-menu button.delete-option:hover {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.folder-context-menu button svg {
+  color: inherit;
+}
+
+.folder-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.folder-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.folder-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.folder-list::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 2px;
+}
+
+.folder-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .folder-menu-button {
+    opacity: 1;
+  }
+}

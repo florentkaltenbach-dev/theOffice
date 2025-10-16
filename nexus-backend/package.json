@@ -1,0 +1,21 @@
+{
+  "name": "nexus-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend server for Nexus PWA - bridges to Claude",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.4.7",
+    "better-sqlite3": "^11.8.1"
+  },
+  "author": "Nexus Software Solutions - Roberto Silva",
+  "license": "MIT"
+}

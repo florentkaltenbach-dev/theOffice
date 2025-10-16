@@ -1,0 +1,154 @@
+/* Written by: Katie - UI Designer
+   Reviewed by: Sarah Williams
+   Status: Production-Ready */
+
+.message-actions {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.actions-toolbar {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.actions-toolbar.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.action-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.action-button:active {
+  transform: scale(0.95);
+}
+
+.action-button.action-delete:hover {
+  color: #f44336;
+  border-color: #f44336;
+}
+
+/* Edit mode */
+.message-edit-container {
+  margin-top: 0.5rem;
+}
+
+.message-edit-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: #2a2a2a;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.message-edit-input:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.message-edit-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: flex-end;
+}
+
+.message-edit-actions button {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #45a049;
+}
+
+.btn-save:active {
+  transform: scale(0.98);
+}
+
+.btn-cancel {
+  background: #555;
+  color: #e0e0e0;
+}
+
+.btn-cancel:hover {
+  background: #666;
+}
+
+.btn-cancel:active {
+  transform: scale(0.98);
+}
+
+/* Edited indicator */
+.message-edited-indicator {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  color: #666;
+  font-style: italic;
+}
+
+.message-edited-indicator span {
+  cursor: help;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .actions-toolbar {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .action-button {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .action-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .actions-toolbar {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

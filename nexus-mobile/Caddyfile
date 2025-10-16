@@ -1,0 +1,50 @@
+# Caddy configuration for Nexus Mobile PWA
+# Written by: Kevin O'Brien - DevOps Team
+# Reviewed by: Dmitri - Security Team
+# Status: Production-Ready
+
+# Production domain with automatic HTTPS
+nexus.kaltenbach.dev {
+	# API routes - proxy to backend
+	handle /api/* {
+		reverse_proxy localhost:3001
+	}
+
+	# Frontend - serve React PWA
+	handle {
+		root * /opt/theOffice/nexus-mobile/dist
+		encode gzip
+
+		# Cache static assets
+		@static {
+			path *.js *.css *.png *.jpg *.jpeg *.gif *.ico *.svg *.woff *.woff2
+		}
+		header @static Cache-Control "public, max-age=31536000, immutable"
+
+		# SPA routing - serve index.html for all routes
+		try_files {path} /index.html
+		file_server
+	}
+
+	# Security headers
+	header {
+		# Enable HSTS
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		# Prevent clickjacking
+		X-Frame-Options "DENY"
+		# Prevent MIME type sniffing
+		X-Content-Type-Options "nosniff"
+		# Enable XSS protection
+		X-XSS-Protection "1; mode=block"
+		# Referrer policy
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}
+
+# Disable insecure HTTP - force HTTPS only
+# Port 80 will auto-redirect to HTTPS via Caddy's auto_https feature
